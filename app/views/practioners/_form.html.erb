@@ -1,0 +1,23 @@
+<%= form_for @practioner do |f| %>
+<p>
+  <%= f.label :name, "Practioner Name:" %>
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :username %>
+  <%= f.text_field :username, :autofocus => true %>
+</p>
+<p>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+</p>
+<p>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</p>
+<p>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+</p>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,25 @@
+<p>this is appointment index page</p>
+
+<h2>Today's appointment</h2>
+<% @appointments.each do |appointment| %>
+  <%if appointment.appointment_date.strftime('%Y-%m-%d') == Date.today.to_s %>
+    <p>Time: <%= appointment.appointment_date %>
+    <p>Practioner: <%= appointment.practioner.name %>
+    <p>Patient: <%= appointment.patient.name %>
+      <%= link_to(appointment.patient.name, appointment.patient) %>
+  <% end %>
+<% end%>
+
+<h2>List of appointments</h2>
+<% @appointments.each do |appointment|%>
+  <%if appointment.appointment_date.strftime('%Y-%m-%d') >= Date.today.to_s %>
+    <p>Appointment# <%= appointment.appointment_date%><br>
+      Practioner: <%= appointment.practioner.name %>  <br>
+      Patient: <%= appointment.patient.name %><br>
+    <li><%= link_to('Edit', edit_appointment_path(appointment))%></li>
+    <li><%= link_to('Delete', appointment, :data => {:confirm => 'Are you sure?', :method => :delete })%></li>
+    </p>
+  <% end %>
+<% end %>
+
+

@@ -1,0 +1,18 @@
+<%= form_for @appointment do |f| %>
+  <p>
+    <!--input type="text" id="datepicker" name="appointment[date]"-->
+  </p>
+
+  <p>
+<%#= f.datetime_select :appointment_date%>
+<%= f.date_field :appointment_date, :min => Date.today %>
+<%= time_field_tag 'appointment[appointment_time]' %>
+  </p>
+<p><%= f.label :practioner_id %>
+<%= f.select :practioner_id, Practioner.all.map{|practioner|[practioner.id.to_s + practioner.name, practioner.id]}, :include_blank => true %></p>
+
+<p><%= f.label :patient_id %>
+<%= f.select :patient_id, Patient.all.map{|patient|[patient.id.to_s + patient.f_name + patient.l_name, patient.id]}, :include_blank => true %></p>
+
+<%= f.submit %>
+<% end %>

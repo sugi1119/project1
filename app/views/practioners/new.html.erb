@@ -1,0 +1,11 @@
+<h2>New Practioner registration</h2>
+
+ <% if @practioner.errors.any? %>
+ <ol>
+    <% @practioner.errors.full_messages.each do |msg| %>
+    <li><% msg %></li>
+    <% end %>
+ </ol>
+ <% end%>
+
+ <%= render :partial => 'form' %>

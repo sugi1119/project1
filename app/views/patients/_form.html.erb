@@ -1,0 +1,54 @@
+
+<%= form_for @patient do |f| %>
+<p>
+  <%= f.label :f_name, "First name:" %>
+  <%= f.text_field :f_name,:autofocus => true %>
+</p>
+
+<p>
+  <%= f.label :m_name, "Middle name:" %>
+  <%= f.text_field :m_name,:autofocus => true %>
+</p>
+
+<p>
+  <%= f.label :l_name, "Last name:" %>
+  <%= f.text_field :l_name,:autofocus => true %>
+</p>
+
+<p>
+  <%= f.label :title, "Title:" %>
+  <%= f.text_field :title %>
+</p>
+
+<p>
+  <%= f.label :address, "Address (street, city, state):"%>
+  <%= f.text_field :address %>
+</p>
+
+<p>
+  <%= f.label :postcode, "Postcode: "%>
+  <%= f.text_field :postcode %>
+</p>
+
+<p>
+  <%= f.label :dob, "Date of Birth" %>
+  <%= f.text_field :dob, :placeholder => 'YYYY-MM-DD'%>
+</p>
+
+<p>
+  <%= f.label :phone, "Phone number" %>
+  <%= f.text_field :phone %>
+</p>
+
+<p>
+  <%= f.label :mobile, "Mobile number" %>
+  <%= f.text_field :mobile %>
+</p>
+
+<p>
+  <%= f.label :occupation %>
+  <%= f.text_field :occupation %>
+</p>
+<%= f.submit %>
+
+<% end %>
