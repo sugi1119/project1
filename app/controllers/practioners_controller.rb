@@ -1,5 +1,5 @@
 class PractionersController < ApplicationController
-    before_action :check_if_if_logged_in, :except => [:new, :create]
+    before_action :check_if_logged_in, :except => [:new, :create]
 
     before_action :check_if_admin, :only => [:index]
 
@@ -39,17 +39,16 @@ class PractionersController < ApplicationController
 
     private
     def practioner_params
-    params.require(:practioner).permit(:name, :password, :password_confirmation)
+        params.require(:practioner).permit(:name, :password, :password_confirmation)
     end
 
-  def check_if_logged_in
-    redirect_to(new_practioner_path) if @current_practioner.nil?
+    def check_if_logged_in
+        redirect_to(new_practioner_path) if @current_user.nil?
+    end
 
-  end
-
-  def check_if_admin
-    redirect_to(root_path) unless @current_practioner.is_admin?
-  end
+    def check_if_admin
+        redirect_to(root_path) unless @current_user.is_admin?
+    end
 end
 
 

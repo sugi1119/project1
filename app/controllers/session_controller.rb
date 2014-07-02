@@ -5,6 +5,7 @@ class SessionController < ApplicationController
 
   def create
    practioner = Practioner.find_by(:username => params[:username] )
+   #raise params.inspect
    if practioner.present? && practioner.authenticate(params[:password])
     session[:practioner_id] = practioner.id
     redirect_to root_path

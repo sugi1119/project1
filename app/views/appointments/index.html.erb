@@ -5,8 +5,9 @@
   <%if appointment.appointment_date.strftime('%Y-%m-%d') == Date.today.to_s %>
     <p>Time: <%= appointment.appointment_date %>
     <p>Practioner: <%= appointment.practioner.name %>
-    <p>Patient: <%= appointment.patient.name %>
+    <p>Patient: <% appointment.patient.name %>
       <%= link_to(appointment.patient.name, appointment.patient) %>
+    <li><%= link_to('consultation',edit_appointment_path(appointment))%></li>
   <% end %>
 <% end%>
 

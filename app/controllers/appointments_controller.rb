@@ -12,6 +12,8 @@ class AppointmentsController < ApplicationController
            params[:appointment][:appointment_time]
     appointment.appointment_date = date
     appointment.save
+
+
     # if @appointment.appointment_date == Date.today
     #   p "today"
     # end
@@ -56,7 +58,11 @@ class AppointmentsController < ApplicationController
     appointment.save
     appointment.update appointment_params
 
-    redirect_to appointment
+    if params[:prescription] == 'Yes'
+      redirect_to new_prescription_path appointment.id
+    else
+      redirect_to appointment
+    end
   end
 
   def destroy
@@ -70,7 +76,7 @@ class AppointmentsController < ApplicationController
 
   private
   def appointment_params
-    params.require(:appointment).permit(:patient_id, :practioner_id)
+    params.require(:appointment).permit(:patient_id, :practioner_id, :notes)
     # params[:appointment][:appointment_date] => '6/7/2014'
   end
 

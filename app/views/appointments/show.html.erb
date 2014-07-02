@@ -1,4 +1,4 @@
-<h2>Appointments</h2>
+<h2>Appointment / consultation details</h2>
 
 <p>Appointment ID: <%= @appointment.id %><br>
 Practioner ID: <%= @appointment.practioner_id %>
@@ -6,4 +6,5 @@ Practioner Name: <%= @appointment.practioner.name %><br>
 Patient ID: <%= @appointment.patient_id%>
 Patient Name: <%= @appointment.patient.name %><br>
 Appointment date & time: <%= @appointment.appointment_date %></p>
+<p>Consultation note: <br><%= @appointment.notes %></p>
 

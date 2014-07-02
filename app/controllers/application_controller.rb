@@ -8,11 +8,11 @@ class ApplicationController < ActionController::Base
   private
   def authenticate_user
     if session[:practioner_id].present?
-      @current_practioner = Practioner.where(:id => session[:user_id]).first
+      @current_user = Practioner.where(:id => session[:practioner_id]).first
     end
 
     if @current_user.nil?
-      session[:user_id] = nil
+      session[:practioner_id] = nil
     end
   end
 end

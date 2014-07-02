@@ -16,5 +16,5 @@ class Practioner < ActiveRecord::Base
   has_secure_password
   has_many :appointments
   has_many :patients, :through => :appointments
-  validates :username, :presence => true, :length => {:minimum => 4}
+  validates :username, :presence => true, :length => {:minimum => 3}
 end

@@ -1,7 +1,5 @@
 <h2>Patient information</h2>
-<%= @patients.each do |patient| %>
+<% @patients.each do |patient| %>
 <p><%= patient.id %>
-<%= patient.f_name %>
-<%= patient.m_name %>
-<%= patient.l_name %></p>
+<%= patient.name %></p>
 <% end %>

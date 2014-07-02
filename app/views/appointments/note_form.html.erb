@@ -1,4 +1,10 @@
-<%= form_for @appointment do |f| %>
+<p> Appointment ID: <%= @appointment.id %><br>
+    Appointment date & time: <%= @appointment.appointment_date %>
+    Patient ID: <%= @appointment.patient_id%>
+    Patient Name: <%= @appointment.patient.name %><br>
+</p>
+
+<%= form_for @appointment.note do |f| %>
   <p>
     <!--input type="text" id="datepicker" name="appointment[date]"-->
   </p>
@@ -13,17 +19,6 @@
 
 <p><%= f.label :patient_id %>
 <%= f.select :patient_id, Patient.all.map{|patient|[patient.id.to_s + patient.f_name + patient.l_name, patient.id]}, :include_blank => true %></p>
-
-<p>
-  <label for="presecription">Prescription required</label>
-  <select name="prescription" id="prescription">
-    <option>Yes</option>
-    <option>No</option>
-  </select>
-</p>
-
-<p><%= f.label :notes, "Consultation note"%>
-  <%= f.text_area :notes, size: "60x30", :include_blank => true%></p>
 
 <%= f.submit %>
 <% end %>

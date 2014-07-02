@@ -1,0 +1,20 @@
+<h2>Prescription</h2>
+<h3>Name: <%= @prescription.appointment.patient.name %></h3>
+<p>
+  Recommendation: <br>
+  <%= @prescription.recommendation %>
+</p>
+
+<p>
+  Dosage : <br>
+  <%= @prescription.dosage %>
+</p>
+
+<p>
+  Practioner name: <%= @prescription.appointment.practioner.name %> <br>
+  Sign: <br>
+  Date: <%= @prescription.appointment.appointment_date.strftime("%Y-%m-%d") %>
+</p>
+
+
+

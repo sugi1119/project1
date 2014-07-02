@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root :to => 'pages#hamldemo'
   resources :practioners, :patients, :appointments
+  resources :prescriptions, :except => :new
+  get '/prescriptions/:appointment_id/new' => 'prescriptions#new', :as => 'new_prescription'
 
   get '/login' => 'session#new'
   post '/login' => 'session#create'

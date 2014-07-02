@@ -6,10 +6,12 @@
 #  appointment_date :datetime
 #  patient_id       :integer
 #  practioner_id    :integer
+#  notes            :text
 #
 
 class Appointment < ActiveRecord::Base
   belongs_to :practioner
   belongs_to :patient
+  has_many :prescriptions
 
 end

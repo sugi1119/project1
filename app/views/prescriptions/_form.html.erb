@@ -1,0 +1,19 @@
+<%= form_for @prescription do |f| %>
+<h3>Name: <%= @appointment.patient.name %></h3>
+<p>
+  Recommendation: <br>
+  <%= @prescription.recommendation %>
+</p>
+<p>
+  <%= f.label :recommendation, "Recommendation: " %>
+  <%= f.text_area :recommendation, size:"60x20", :include_blank => true %>
+</p>
+<p>
+  <%= f.label :dosage, "Dosage: "%>
+  <%= f.text_area :dosage, size:"60x20", :include_blank => true %>
+</p>
+
+<%= hidden_field_tag :appointment_id, @appointment.id %>
+
+<%= f.submit %>
+<% end %>
