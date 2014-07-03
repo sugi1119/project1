@@ -21,6 +21,7 @@ class PractionersController < ApplicationController
     end
 
     def edit
+        @practioner = Practioner.find params[:id]
     end
 
     def show
@@ -35,6 +36,10 @@ class PractionersController < ApplicationController
     end
 
     def destroy
+        practioner = Practioner.find params[:id]
+        practioner.destroy
+
+        redirect_to practioners_path
     end
 
     private

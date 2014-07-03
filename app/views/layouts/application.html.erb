@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Prototype1_2</title>
+  <title>Practioner start_up management system</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,7 +12,11 @@
   <nav>
     <ul>
           <li><%= @current_user.try(:username) %></li>
-
+          <li><%= link_to('My page', '/appointments')%></li>
+          <li><%= link_to('New appointment', '/appointments/new')%></li>
+          <li><%#= link_to('Patient information', '/patients')%></li>
+          <li><%#= link_to('Supplement list', '/supplements')%></li>
+          <li><%#= link_to('Invoice list', '/invoice')%></li>
             <%== smartnav %>
 
         </ul>

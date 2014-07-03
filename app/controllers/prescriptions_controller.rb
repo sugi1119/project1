@@ -18,6 +18,8 @@ class PrescriptionsController < ApplicationController
     @appointment = Appointment.find params[:appointment_id]
 
     @prescription = Prescription.new
+
+    #@supplement = Supplement.find params[:supplement_id]
 #raise params.inspect
   end
 
@@ -35,7 +37,7 @@ class PrescriptionsController < ApplicationController
   end
 
   def update
-    raise params.inspect
+    # raise params.inspect
     @appointment = Appointment.find params[:appointment_id]
     prescription = Prescription.find params[:id]
     prescription.update prescription_params
@@ -50,6 +52,20 @@ class PrescriptionsController < ApplicationController
 
     redirect_to prescriptions_path
 
+  end
+
+  def choose
+    @supplements = Supplement.all
+  end
+
+  def add_supplements
+    prescription = Prescription.find params[:id]
+    params[:supplement].each do |supplement_id, quantity|
+      supplement = Supplement.find supplement_id
+      # Somehow, insert quantity * supplement in your database.
+    end
+    raise params.inspect
+    redirect_to prescription
   end
 
   private

@@ -12,7 +12,7 @@
 
 class Prescription < ActiveRecord::Base
   belongs_to :appointment
-  has_many_and_belongs_to :supplement
+  has_and_belongs_to_many :supplements
 
 end
 

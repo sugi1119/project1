@@ -1,0 +1,13 @@
+<h2>Supplement item</h2>
+
+<h3>Item_name: <%= @supplement.item_name %></h3>
+<p>
+  Amount: <%= @supplement.amount %> <br>
+  Cost: <%= @supplement.item_cost %>
+</p>
+
+
+ <%#= form_for @supplements do |f| %>
+<%#= f.label supplement.id %>
+  <%#= f.select supplement.id, Supplement.all.map{|supplement|[supplement.id.to_s + supplement.item_name, supplement.amount, supplement.item_cost]}, :include_blank => true %>
+<%# end %>

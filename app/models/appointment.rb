@@ -13,5 +13,6 @@ class Appointment < ActiveRecord::Base
   belongs_to :practioner
   belongs_to :patient
   has_many :prescriptions
+  has_one :invoice
 
 end
