@@ -54,17 +54,18 @@ ActiveRecord::Schema.define(version: 20140702192050) do
     t.string   "email"
   end
 
-  create_table "prescriptions", force: true do |t|
-    t.text     "recommendation"
-    t.text     "dosage"
-    t.integer  "appointment_id"
+  create_table "prescription_supplements", force: true do |t|
+    t.integer  "qty"
+    t.integer  "prescription_id"
+    t.integer  "supplement_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "prescriptions_supplements", id: false, force: true do |t|
-    t.integer  "prescription_id"
-    t.integer  "supplement_id"
+  create_table "prescriptions", force: true do |t|
+    t.text     "recommendation"
+    t.text     "dosage"
+    t.integer  "appointment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

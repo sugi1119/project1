@@ -9,7 +9,10 @@
 #
 
 class Supplement < ActiveRecord::Base
-  has_and_belongs_to_many :prescriptions
+  has_many :prescriptions, :through => :prescription_supplements
+  has_many :prescription_supplements
+
+  # belongs_to :dosages
   def fancy_name
     "#{self.try(:item_name)} - #{self.try(:amount)} - #{self.try(:item_cost)}"
   end

@@ -28,11 +28,12 @@ class PrescriptionsController < ApplicationController
   end
 
   def show
-
+    # raise 'err'
     @prescription = Prescription.find params[:id]
+#raise 'err'
+    # @supplement = @prescription.supplements.first # Supplement.find params[:id]
     #raise params.inspect
    # @appointment = Appointment.find params[:appointment_id]
-
 
   end
 
@@ -59,13 +60,19 @@ class PrescriptionsController < ApplicationController
   end
 
   def add_supplements
+raise params.inspect
     prescription = Prescription.find params[:id]
+    prescription.save
+
     params[:supplement].each do |supplement_id, quantity|
-      supplement = Supplement.find supplement_id
-      # Somehow, insert quantity * supplement in your database.
+     supplement = Supplement.find supplement_id
+     if quantity.present?
+    #      dosage = Dosage.create(:quantity => quantity, :supplement_id => supplement_id)
+    #      prescription.dosages << dosage
+       end
     end
-    raise params.inspect
-    redirect_to prescription
+# raise params.inspect
+    redirect_to prescription_path #go to show page
   end
 
   private

@@ -1,0 +1,9 @@
+<%= form_for @prescription_supplement do |f| %>
+
+  <%= f.text_field :qty %><br/>
+
+  <%= f.collection_select :supplement_id, Supplement.all, :id, :item_name %><br/>
+
+  <%= hidden_field_tag 'prescription_supplement[prescription_id]', @prescription_supplement.prescription_id %>
+  <%= f.submit %>
+<% end %>

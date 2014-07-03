@@ -7,7 +7,7 @@
 
 <p>
   Dosage : <br>
-  <%= @prescription.dosage %>
+   <%= @prescription.dosage %>
 </p>
 
 <p>
@@ -16,7 +16,18 @@
   Date: <%= @prescription.appointment.appointment_date.strftime("%Y-%m-%d") %>
 </p>
 
+<p>
+  Supplement list: <br>
+  <% @prescription.prescription_supplements.each do |ps| %>
+   Item name: <%= ps.supplement.item_name %><br>
+  Amount of per bag:<%= ps.supplement.amount %> <br>
+  Qty: <%= ps.qty %>
+  <%#= @supplement.sub_total %>
+  <% end %>
+</p>
 
-<%= link_to 'choose supplements', choose_supplements_path(@prescription.id)%>
+<%= link_to 'add supplement', new_prescription_supplement_path(:prescription_id => @prescription.id) %>
+
+<%= link_to 'Invoice', new_invoice_path(:prescription_id => @prescription.id)%>
 
 

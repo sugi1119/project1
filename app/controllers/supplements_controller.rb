@@ -33,7 +33,7 @@ class SupplementsController < ApplicationController
   end
 
   def update
-    raise params.inspect
+    # raise params.inspect
     supplement = Supplement.find params[:id]
     supplement.update supplement_params
 

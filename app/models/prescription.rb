@@ -12,7 +12,9 @@
 
 class Prescription < ActiveRecord::Base
   belongs_to :appointment
-  has_and_belongs_to_many :supplements
-
+  has_many :supplements, :through => :prescription_supplements
+  has_many :prescription_supplements
+  # has_many :dosages
+  #has_and_belongs_to_many :supplements
 end
 
