@@ -1,3 +1,4 @@
+
 nav ul {
   list-style: none;
   padding: 1em 0;
@@ -23,10 +24,47 @@ hr{
   font-size: 1.5em;
   margin-bottom: 2.0em;
 }
+h2{
+  text-align: center;
+}
+h4 {
+  text-align: center;
+}
+ul{
+  list-style: none;
+}
 
+.info {
+  /*border:1px solid green;*/
+  width: 60%;
+  margin:auto;
+}
 
+.app{
+ /* border: 1px solid red;*/
+  width: 60%;
+  margin:auto;
+}
 
+.supple_info{
+  width: 60%;
+  margin:auto;
+  font-size: 1.2em;
 
+}
+
+.supple_info2{
+  width:80%;
+  margin:auto;
+  border:1px dashed #85837F;
+
+}
+.practioner{
+  text-align: center;
+}
+.info_sp{
+  text-align: center;
+}
 
 
 

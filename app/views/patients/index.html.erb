@@ -1,14 +1,17 @@
-<h2>Patient information</h2>
-  <% @patients.each do |patient| %>
-  <div class = "info">
-    ID: <%= patient.id %><br>
-    Name: <%= patient.name %><br>
-    Address: <%=patient.address%><%= patient.postcode %><br>
-    Phone: <%= patient.phone %><br>
-    Mobile: <%= patient.mobile %><br>
-    Date of Birth:<%= patient.dob%><br>
-    Occupatio:<%= patient.occupation%><br>
-    <li><%= link_to('Edit', edit_patient_path(patient))%></li>
-    <li><%= link_to('Delete', patient, :data => {:confirm => 'Are you sure?', :method => :delete })%></li></div>
-<% end %>
+<div class='center'>
+  <h2>Patient information</h2>
+    <% @patients.each do |patient| %>
+    <div class = "info">
+      ID: <%= patient.id %><br>
+      Name: <%= patient.name %><br>
+      Address: <%=patient.address%><%= patient.postcode %><br>
+      Phone: <%= patient.phone %><br>
+      Mobile: <%= patient.mobile %><br>
+      Date of Birth:<%= patient.dob%><br>
+      Occupatio:<%= patient.occupation%><br>
+      <li><%= link_to('Edit', edit_patient_path(patient))%></li>
+      <li><%= link_to('Delete', patient, :data => {:confirm => 'Are you sure?', :method => :delete })%></li>
+    </div>
+  <% end %>
+</div>
 

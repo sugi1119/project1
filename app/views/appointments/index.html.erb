@@ -1,4 +1,6 @@
+<div class="info">
 <h2>Today's appointment</h2>
+<div class="app">
 <% @appointments.each do |appointment| %>
   <%if appointment.appointment_date.strftime('%Y-%m-%d') == Date.today.to_s %>
     <blockquote>
@@ -9,11 +11,14 @@
           <%= link_to(appointment.patient.name, appointment.patient) %><br>
           <%= link_to('consultation',edit_appointment_path(appointment))%><br>
         </p>
+
     </blockquote>
   <% end %>
 <% end%>
+</div>
 <hr>
 <h2>List of appointments</h2>
+<div class="app">
 <% @appointments.each do |appointment|%>
   <%if appointment.appointment_date.strftime('%Y-%m-%d') > Date.today.to_s %>
     <blockquote>
@@ -27,5 +32,6 @@
     </blockquote>
   <% end %>
 <% end %>
-
+</div>
+</div>
 
