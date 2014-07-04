@@ -1,8 +1,10 @@
 <h2>Supplement list</h2>
-<% @supplements.each do |supplement| %>
-<p>ID: <%= supplement.id %>
-  Item name: <%= supplement.item_name %>
-Amount: <%= supplement.amount %>
-Item cost: <%= supplement.item_cost %></p>
+<div class="info">
+  <% @supplements.each do |supplement| %>
+    <p> Supplement ID: <%= supplement.id %><br>
+        Item name: <%= supplement.item_name %><br>
+        Amount per bag: <%= supplement.amount %><br>
+        Item cost: <%= supplement.item_cost %></p>
+</div>
 <% end %>
 

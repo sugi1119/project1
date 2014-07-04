@@ -13,13 +13,6 @@ class AppointmentsController < ApplicationController
     appointment.appointment_date = date
     appointment.save
 
-
-    # if @appointment.appointment_date == Date.today
-    #   p "today"
-    # end
-    # params[:appointment][:appointment_date]
-    # appointment.save
-    # raise params.inspect
     redirect_to appointment
   end
 

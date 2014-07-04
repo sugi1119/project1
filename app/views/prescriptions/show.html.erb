@@ -1,5 +1,5 @@
 <h2>Prescription</h2>
-<h3>Name: <%= @prescription.appointment.patient.name %></h3>
+<h3>Patient name: <%= @prescription.appointment.patient.name %></h3>
 <p>
   Recommendation: <br>
   <%= @prescription.recommendation %>
@@ -28,6 +28,6 @@
 
 <%= link_to 'add supplement', new_prescription_supplement_path(:prescription_id => @prescription.id) %>
 
-<%= link_to 'Invoice', new_invoice_path(:prescription_id => @prescription.id)%>
+<%#= link_to 'Invoice', new_invoice_path(:prescription_id => @prescription.id)%>
 
 

@@ -4,14 +4,21 @@ class InvoiceController < ApplicationController
   end
 
   def create
-    invoice = Invoice.create invoice_params
+    raise 'err'
+    invoice = Invoice.new invoice_params
     invoice.save
 
     redirect_to invoice
   end
 
   def new
+  #raise 'err'
     @invoice = Invoice.new
+    @prescription = Prescription.find params[:prescription_id]
+    @prescription.appointment_id = [:appointment_id]
+    #@appointment = Appointment.find params [:appointment_id]
+
+#raise prams.inspect
   end
 
   def edit

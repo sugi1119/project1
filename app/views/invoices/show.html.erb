@@ -1,1 +1,17 @@
-show.html.erb
+<h2>Invoice</h2>
+
+<p>Invoice ID: <%= @invoice.id %><br>
+Practioner ID: <%= @invoice.appointment.practioner_id %>
+Practioner Name: <%= @invoice.appointment.practioner.name %><br>
+Patient ID: <%= @invoice.appointment.patient_id%>
+Patient Name: <%= @invoice.appointment.patient.name %><br>
+Appointment date & time: <%= @invoice.appointment.appointment_date %></p>
+<p>Service:  <br><%= @invoice.service %></p>
+<p>Consultation/service fee: AUD: <%= @inovice.service_charge %></p>
+
+<p>Supplement:
+  <% @invoice.prescription.prescription_supplements.each do |ps| %> <br>
+  Item name: <%= @invoice.prescription.prescriptionsupplement.supplement.item_name %> <br>Sub total cost of supplement: <%= (@invoice.prescription.prescriptionsupplement.supplement.amount).to_i * (@invoice.prescriptionsupplement.qty)%></p>
+
+  <p>Total cost: <%= (@inovice.service_charge) %></p>
+

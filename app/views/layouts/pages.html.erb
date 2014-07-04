@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
   <meta charset="utf-8">
   <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
+  <div class="container">
   <nav>
     <ul>
           <li><%= @current_user.try(:username) %></li>
@@ -21,7 +24,7 @@
       </nav>
 
 <%= yield %>
-
+  </div>
 </body>
 <!-- this should go after your </body> -->
 </html>

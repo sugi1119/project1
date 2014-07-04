@@ -30,7 +30,7 @@ class PrescriptionsController < ApplicationController
   def show
     # raise 'err'
     @prescription = Prescription.find params[:id]
-#raise 'err'
+#raise params.inspect
     # @supplement = @prescription.supplements.first # Supplement.find params[:id]
     #raise params.inspect
    # @appointment = Appointment.find params[:appointment_id]
@@ -77,7 +77,7 @@ raise params.inspect
 
   private
   def prescription_params
-    params.require(:prescription).permit(:recomendation, :dosage, :appointment_id)
+    params.require(:prescription).permit(:recommendation, :dosage, :appointment_id)
   end
 end
 

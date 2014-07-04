@@ -1,25 +1,30 @@
-<p>this is appointment index page</p>
-
 <h2>Today's appointment</h2>
 <% @appointments.each do |appointment| %>
   <%if appointment.appointment_date.strftime('%Y-%m-%d') == Date.today.to_s %>
-    <p>Time: <%= appointment.appointment_date %>
-    <p>Practioner: <%= appointment.practioner.name %>
-    <p>Patient: <% appointment.patient.name %>
-      <%= link_to(appointment.patient.name, appointment.patient) %>
-    <li><%= link_to('consultation',edit_appointment_path(appointment))%></li>
+    <blockquote>
+      <p><strong>Appointment ID: <%= appointment.id %></strong><br>
+          Time: <%= appointment.appointment_date %><br>
+          Practioner: <%= appointment.practioner.name %><br>
+          Patient: <% appointment.patient.name %>
+          <%= link_to(appointment.patient.name, appointment.patient) %><br>
+          <%= link_to('consultation',edit_appointment_path(appointment))%><br>
+        </p>
+    </blockquote>
   <% end %>
 <% end%>
-
+<hr>
 <h2>List of appointments</h2>
 <% @appointments.each do |appointment|%>
-  <%if appointment.appointment_date.strftime('%Y-%m-%d') >= Date.today.to_s %>
-    <p>Appointment# <%= appointment.appointment_date%><br>
-      Practioner: <%= appointment.practioner.name %>  <br>
-      Patient: <%= appointment.patient.name %><br>
-    <li><%= link_to('Edit', edit_appointment_path(appointment))%></li>
-    <li><%= link_to('Delete', appointment, :data => {:confirm => 'Are you sure?', :method => :delete })%></li>
+  <%if appointment.appointment_date.strftime('%Y-%m-%d') > Date.today.to_s %>
+    <blockquote>
+      <p>Appointment ID: <%= appointment.id %><br>
+        Appointment# <%= appointment.appointment_date%><br>
+        Practioner: <%= appointment.practioner.name %><br>
+        Patient: <%= appointment.patient.name %>
+      <li><%= link_to('Edit', edit_appointment_path(appointment))%></li>
+      <li><%= link_to('Delete', appointment, :data => {:confirm => 'Are you sure?', :method => :delete })%></li>
     </p>
+    </blockquote>
   <% end %>
 <% end %>
 

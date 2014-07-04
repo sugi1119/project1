@@ -1,24 +1,22 @@
-<%= form_for @prescription do |f| %>
-<h3>Name: <%= @appointment.patient.name %></h3>
-<p>
-  Recommendation: <br>
-  <%= @prescription.recommendation %>
-</p>
-<p>
-  <%= f.label :recommendation, "Recommendation: " %>
-  <%= f.text_area :recommendation, size:"60x20", :include_blank => true %>
-</p>
-<p>
-   <%= f.label :dosage, "Dosage: "%>
-  <%= f.text_area :dosage, size:"60x20", :include_blank => true %>
-</p>
-<p>
-  <%#= f.label @supplement.id %>
-  <%#= f.select @supplement.id, Supplement.all.map{|supplement|[supplement.id.to_s + supplement.item_name, supplement.amount, supplement.item_cost]}, :include_blank => true %>
+<%= form_for @prescription, :class => "form-group" do |f| %>
+<h3>Patient name: <%= @appointment.patient.name %></h3>
+  <div class="form-group">
+  </div>
+  <div class="form-group">
+    <%= f.label :recommendation, "Recommendation: " %>
+    <%= f.text_area :recommendation, :include_blank => true, :class => "form-control", :rows => "3"%>
+  </div>
+  <div class="form-group">
+     <%= f.label :dosage, "Dosage: "%>
+    <%= f.text_area :dosage, :include_blank => true, :class => "form-control", :rows => "3" %>
+  </div>
+  <div class="form-group">
+    <%#= f.label @supplement.id %>
+    <%#= f.select @supplement.id, Supplement.all.map{|supplement|[supplement.id.to_s + supplement.item_name, supplement.amount, supplement.item_cost]}, :include_blank => true %>
 
-</p>
+  </div>
 
-<%= hidden_field_tag :appointment_id, @appointment.id %>
+  <%= hidden_field_tag :appointment_id, @appointment.id %>
 
-<%= f.submit %>
+  <%= f.submit :type => "submit", :class => "btn btn-default" %>
 <% end %>

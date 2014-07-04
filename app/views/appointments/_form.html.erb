@@ -1,29 +1,32 @@
 <%= form_for @appointment do |f| %>
-  <p>
-    <!--input type="text" id="datepicker" name="appointment[date]"-->
-  </p>
+  <div class="form-group">
+    <%= f.date_field :appointment_date, :min => Date.today %>
+    <%= time_field_tag 'appointment[appointment_time]' %>
+  </div>
 
-  <p>
-<%#= f.datetime_select :appointment_date%>
-<%= f.date_field :appointment_date, :min => Date.today %>
-<%= time_field_tag 'appointment[appointment_time]' %>
-  </p>
-<p><%= f.label :practioner_id %>
-<%= f.select :practioner_id, Practioner.all.map{|practioner|[practioner.id.to_s + practioner.name, practioner.id]}, :include_blank => true %></p>
+  <div class="form-group">
+    <%= f.label :practioner_id %>
+    <%= f.select :practioner_id, Practioner.all.map{|practioner|[practioner.id.to_s + practioner.name, practioner.id]}, :include_blank => true, :class =>'form-control input-lg' %>
+  </div>
 
-<p><%= f.label :patient_id %>
-<%= f.select :patient_id, Patient.all.map{|patient|[patient.id.to_s + patient.f_name + patient.l_name, patient.id]}, :include_blank => true %></p>
+  <div class="form-group">
+    <%= f.label :patient_id %>
+    <%= f.select :patient_id, Patient.all.map{|patient|[patient.id.to_s + patient.f_name + patient.l_name, patient.id]}, :include_blank => true, :class =>'form-control input-lg' %>
+  </div>
 
-<p>
-  <label for="presecription">Prescription required</label>
-  <select name="prescription" id="prescription">
-    <option>Yes</option>
-    <option>No</option>
-  </select>
-</p>
+  <div class="">
+    <label for="presecription">Prescription required</label>
+    <select name="prescription" id="prescription" class="form-control">
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+  </div>
 
-<p><%= f.label :notes, "Consultation note"%>
-  <%= f.text_area :notes, size: "60x30", :include_blank => true%></p>
-
-<%= f.submit "Update Appointment/Consultation"%>
-<% end %>
+  <div class="form-group">
+    <%= f.label :notes, "Consultation note"%>
+    <%= f.text_area :notes, :include_blank => true,  :class => "form-control", :rows => "3" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Update Appointment/Consultation"%>
+  </div>
+    <% end %>
