@@ -12,13 +12,16 @@ class InvoiceController < ApplicationController
   end
 
   def new
-  #raise 'err'
+  # raise 'err'
     @invoice = Invoice.new
-    @prescription = Prescription.find params[:prescription_id]
-    @prescription.appointment_id = [:appointment_id]
+    @appointment = Appointment.find params[:appointment_id]
+    @prescriptions = @appointment.prescriptions
+
+    # @prescription = Prescription.find params[:prescription_id]
+    # @prescription.appointment_id = [:appointment_id]
     #@appointment = Appointment.find params [:appointment_id]
 
-#raise prams.inspect
+ raise params.inspect
   end
 
   def edit
@@ -26,7 +29,9 @@ class InvoiceController < ApplicationController
   end
 
   def show
+    raise 'err'
     @invoice = Invoice.find params[:id]
+    @appointment = Appointment.find[:id]
   end
 
   def update
@@ -45,7 +50,7 @@ class InvoiceController < ApplicationController
 
   private
   def invoice_params
-    params>require(:invoice).permit(:service, :service_charge, :appointment_id)
+    params.require(:invoice).permit(:service, :service_charge, :appointment_id)
   end
 end
 

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/prescriptions/:appointment_id/new' => 'prescriptions#new', :as => 'new_prescription'
   get '/prescriptions/:prescription_id/choose' => 'prescriptions#choose', :as => 'choose_supplements'
   post '/prescriptions/:id/add_supplements' => 'prescriptions#add_supplements'
+
   #get '/prescriptions/:prscription_id/show_w_supplements' => 'prescriptions#show_w_supplements', :as => 'show_w_supplements'
 
   get '/login' => 'session#new'

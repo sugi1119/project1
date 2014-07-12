@@ -1,7 +1,8 @@
 class AppointmentsController < ApplicationController
 
   def index
-    @appointments = Appointment.all
+    # @appointments = Appointment.all
+    @appointments = Appointment.order('appointment_date ASC').all
 
    # raise params.inspect
   end

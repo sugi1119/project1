@@ -16,5 +16,9 @@ class Prescription < ActiveRecord::Base
   has_many :prescription_supplements
   # has_many :dosages
   #has_and_belongs_to_many :supplements
+
+  def total_supplement_cost
+    prescription_supplements.map { |s| s.supplement.item_cost * s.qty }.sum
+  end
 end
 

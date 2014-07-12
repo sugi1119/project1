@@ -10,8 +10,10 @@ Appointment date & time: <%= @invoice.appointment.appointment_date %></p>
 <p>Consultation/service fee: AUD: <%= @inovice.service_charge %></p>
 
 <p>Supplement:
-  <% @invoice.prescription.prescription_supplements.each do |ps| %> <br>
-  Item name: <%= @invoice.prescription.prescriptionsupplement.supplement.item_name %> <br>Sub total cost of supplement: <%= (@invoice.prescription.prescriptionsupplement.supplement.amount).to_i * (@invoice.prescriptionsupplement.qty)%></p>
+  <% @invoice.prescriptions.prescription_supplements.each do |ps| %> <br>
+  Item name: <%= @invoice.prescriptions.prescriptionsupplement.supplement.item_name %>
+
+  <br>Sub total cost of supplement: <%= (@invoice.prescription.prescriptionsupplement.supplement.amount).to_i * (@invoice.prescriptionsupplement.qty)%></p>
 
   <p>Total cost: <%= (@inovice.service_charge) %></p>
 

@@ -11,14 +11,12 @@
    <%= @prescription.dosage %>
 </p>
 
-
-
 <p>
   <strong>Supplement list:</strong> <br>
   <% @prescription.prescription_supplements.each do |ps| %>
    Item name: <%= ps.supplement.item_name %><br>
   Amount of per bag:<%= ps.supplement.amount %> <br>
-  Qty: <%= ps.qty %>
+  Qty: <%= ps.qty %><br>
   <%#= @supplement.sub_total %>
   <% end %>
 </p>
@@ -30,7 +28,7 @@
   <strong>Sign: </strong><br>
   <strong>Date: </strong><%= @prescription.appointment.appointment_date.strftime("%Y-%m-%d") %>
 </p>
-<%#= link_to 'Invoice', new_invoice_path(:prescription_id => @prescription.id)%>
+<%= link_to 'Invoice', new_invoice_path(:appointment_id => @prescription.appointment.id)%>
 </div>
 
 
